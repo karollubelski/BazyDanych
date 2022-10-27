@@ -1,0 +1,11 @@
+1 Tabela
+
+CREATE TABLE zadanie (id_postaci INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nazwa VARCHAR(40), rodzaj ENUM('wiking','ptak','kobieta'), data_ur DATE, wiek INT UNSIGNED);
+INSERT INTO postac (id_postaci, nazwa, rodzaj, data_ur, wiek) VALUES('0','Bjorn','wiking','1997-03-21','25');
+INSERT INTO postac (id_postaci, nazwa, rodzaj, data_ur, wiek) VALUES('2','Drozd','ptak','2021-04-11','1');
+INSERT INTO postac (id_postaci, nazwa, rodzaj, data_ur, wiek) VALUES('3','Tesciowa','kobieta','1949-07-07','73');
+
+
+2 Tabela
+CREATE TABLE walizka (id_walizki INT NOT NULL PRIMARY KEY AUTO_INCREMENT, pojemnosc INT UNSIGNED, kolor ENUM('rozowy','czerwony','teczowy','zolty'), id_wlasciciela FOREIGN KEY (id_walizki) 
+
