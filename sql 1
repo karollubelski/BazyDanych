@@ -7,5 +7,17 @@ INSERT INTO postac (id_postaci, nazwa, rodzaj, data_ur, wiek) VALUES('3','Tescio
 
 
 2 Tabela
-CREATE TABLE walizka (id_walizki INT NOT NULL PRIMARY KEY AUTO_INCREMENT, pojemnosc INT UNSIGNED, kolor ENUM('rozowy','czerwony','teczowy','zolty'), id_wlasciciela FOREIGN KEY (id_walizki) 
+CREATE TABLE walizka(id_walizki int not null auto_increment PRIMARY KEY,pojemnosc INT UNSIGNED not null, kolor ENUM("rozowy","czerwony","teczowy","zolty"),id_wlasciciela INT, FOREIGN KEY(id_wlasciciela)REFERENCES postac(id_postaci) ON DELETE CASCADE);
+ALTER TABLE walizka ALTER COLUMN kolor SET DEFAULT "rozowy";
+INSERT INTO walizka(id_walizki,pojemnosc,kolor,id_wlasciciela) VALUES('0','5','rozowy','1');
+INSERT INTO walizka(id_walizki,pojemnosc,kolor,id_wlasciciela) VALUES('0','10','zolty','3');
 
+3Tabela
+CREATE TABLE izba(adres_budynku VARCHAR(50), nazwa_izby VARCHAR(50), metraz INT UNSIGNED, wlasciciel INT, FOREIGN KEY(wlasciciel) REFERENCES postac(id_postaci) ON DELETE SET NULL, PRIMARY KEY(adres_budynku,nazwa_izby));
+ALTER TABLE izba ADD COLUMN kolor_izby VARCHAR(40) AFTER metraz;
+ALTER TABLE izba ALTER COLUMN kolor_izby SET DEFAULT "czarny";
+INSERT INTO izba VALUES("Basniowa 69","spizarnia","69","czarny","1");
+
+4Tabela
+CREATE TABLE przetwory(id_przetworu INT AUTO_INCREMENT PRIMARY KEY, rok_produkcji YEAR, id_wykonawcy INT, zawartosc VARCHAR(50),dodatek VARCHAR(50) DEFAULT "papryczka chili", id_konsumenta INT, FOREIGN KEY(id_wykonawcy) REFERENCES postac(id_postaci),FOREIGN KEY(id_konsumenta) REFERENCES postac(id_postaci));
+ALTER TABLE przetwory ALTER COLUMN rok_produkcji SET DEFAULT "1927";
