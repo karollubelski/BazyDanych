@@ -34,6 +34,7 @@ INSERT INTO statek VALUES("Statek1","okret","2022-11-05","2137");
 INSERT INTO statek VALUES("Statek2","langskip","2022-11-11","2115");
 ALTER TABLE postac ADD COLUMN funkcja AFTER rodzaj;
 
+ALTER TABLE postac ADD FOREIGN KEY(id_postaci) REFERENCES statek(nazwa_statku);
 DELETE FROM table_name WHERE condition;
 DROP TABLE izba;
 
