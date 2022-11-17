@@ -1,1 +1,53 @@
+-- ZADANIE 1 --
+a)
+DELETE FROM postac WHERE id_postaci="iles tam";
+DELETE FROM postac WHERE id_postaci="iles tam";
+b)
+ALTER TABLE przetwory DROP CONSTRAINT przetwory_ibfk_1;
+ALTER TABLE przetwory DROP CONSTRAINT przetwory_ibfk_2;
+ALTER TABLE walizka DROP CONSTRAINT walizka_ibfk_1;
+ALTER TABLE postac MODIFY COLUMN id_postaci int not null;
+ALTER TABLE postac DROP PRIMARY KEY;
+
+
+
+-- ZADANIE 2
+a)
+ALTER TABLE postac ADD COLUMN pesel CHAR(11) NOT NULL FIRST;
+==
+UPDATE postac SET pesel='04250113996' WHERE id_postaci=1;
+UPDATE postac SET pesel='03300286967' WHERE id_postaci=2;
+UPDATE postac SET pesel='55100485932' WHERE id_postaci=3;
+UPDATE postac SET pesel='87101528392' WHERE id_postaci=4;
+UPDATE postac SET pesel='57030364512' WHERE id_postaci=5;
+UPDATE postac SET pesel='68070791943' WHERE id_postaci=6;
+UPDATE postac SET pesel='70103192627' WHERE id_postaci=7;
+==
+ALTER TABLE postac ADD CONSTRAINT PRIMARY KEY(pesel);
+b)
+
+ALTER TABLE postac MODIFY COLUMN rodzaj ENUM('wiking','ptak','kobieta','syrena');
+
+c)
+
+INSERT INTO postac VALUES('99002358235',8,'Gertruda Nieszczera','syrena',NULL,NULL,'1996-05-17',26);
+
+--ZADANIE 3--
+UPDATE statek SET data_wodowania='1958-08-12' WHERE data_wodowania='2022-11-11';
+a)
+UPDATE postac SET statek="Statek2" WHERE nazwa LIKE'%a%';
+b)
+UPDATE statek SET ladownosc=(ladownosc*0.7) WHERE year(data_wodowania) BETWEEN 1900 AND 2000;
+c)
+ALTER TABLE postac ADD CHECK(wiek<1000);
+--ZADANIE 4--
+a)
+INSERT INTO postac VALUES('21002358765',9,'Waz Loko',NULL,NULL,NULL,'2018-11-07',4);
+b)
+CREATE TABLE marynarz (pesel CHAR(11) NOT NULL, id_postaci INT NOT NULL, nazwa VARCHAR(40), rodzaj ENUM('wiking','ptak','kobieta','syrena'), data_ur DATE, wiek INT UNSIGNED);
+c)
+ALTER TABLE marynarz ADD CONSTRAINT PRIMARY KEY(pesel);
+
+--ZADANIE 5--
+a)
 
