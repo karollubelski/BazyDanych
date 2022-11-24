@@ -1,7 +1,7 @@
 -- ZADANIE 1 --
 a)
-DELETE FROM postac WHERE id_postaci="iles tam";
-DELETE FROM postac WHERE id_postaci="iles tam";
+DELETE FROM postac WHERE rodzaj='wiking' AND nazwwa !='Bjorn' ORDER BY data_ur ASC LIMIT 2;--dobrze
+DELETE FROM postac WHERE id_postaci=""; --zle
 b)
 ALTER TABLE przetwory DROP CONSTRAINT przetwory_ibfk_1;
 ALTER TABLE przetwory DROP CONSTRAINT przetwory_ibfk_2;
