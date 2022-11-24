@@ -50,4 +50,18 @@ ALTER TABLE marynarz ADD CONSTRAINT PRIMARY KEY(pesel);
 
 --ZADANIE 5--
 a)
+UPDATE postac SET statek=NULL;
+b)
+DELETE FROM postac WHERE id_postaci=5;
+c)
+DELETE FROM statek;
+d)
+ALTER TABLE postac DROP CONSTRAINT postac_ibfk_1;
+ALTER TABLE marynarz DROP CONSTRAINT marynarz_ibfk_1;
+DROP TABLE STATEK;
+e)
+CREATE TABLE zwierz(zwierz_id INT NOT NULL AUTO_INCREMENT, nazwa VARCHAR(40), wiek INT UNSIGNED,PRIMARY KEY(zwierz_id));
+d)
+INSERT INTO zwierz(zwierz_id,nazwa,wiek)VALUES(1,"Drozd",1);
+INSERT INTO zwierz(zwierz_id,nazwa,wiek)VALUES(2,"Waz Loko",4);
 
