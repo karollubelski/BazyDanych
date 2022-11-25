@@ -23,4 +23,27 @@ SELECT*FROM kreatura WHERE nazwa LIKE '%or%' AND udzwig BETWEEN 30 AND 80; //do 
 
 --ZADANIE 3--
 a)
-select*from zasob where month(data_pozyskania) BETWEEN 7 and 8;
+SELECT*FROM zasob WHERE MONTH(dataPozyskania) IN(7,8);
+b)
+SELECT*FROM zasob WHERE rodzaj IS NOT NULL ORDER BY waga ASC;
+c)
+SELECT*FROM kreatura ORDER BY dataUr ASC LIMIT 5;
+--ZADANIE 4--
+a)
+SELECT DISTINCT rodzaj FROM zasob;
+b)
+SELECT nazwa,rodzaj FROM kreatura WHERE nazwa LIKE 'wi%';
+c)
+SELECT ilosc*waga FROM zasob WHERE year(dataPozyskania) BETWEEN 2000 AND 2007; --dobrze
+SELECT ilosc*waga FROM zasob WHERE year(dataPozyskania) IN(2000,2007); --tylko w roku 2000 i 2007 -- zle
+
+
+--- ZADANIE 5 ---
+a) 
+SELECT waga*0.7 AS 'masa netto', waga*0.3 AS 'waga odpadu' FROM zasob;
+b) 
+SELECT*FROM zasob WHERE rodzaj IS NULL;
+c)
+SELECT DISTINCT rodzaj FROM zasob WHERE nazwa LIKE 'Ba%' OR nazwa LIKE '%os' ORDER BY rodzaj ASC;
+
+
