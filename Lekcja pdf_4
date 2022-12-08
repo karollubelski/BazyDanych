@@ -16,7 +16,7 @@ SELECT rodzaj, COUNT(DISTINCT nazwa) FROM zasob WHERE ilosc>1 GROUP BY rodzaj;
 
 ---ZADANIE 3---
 a)
-SELECT kreatura.nazwa, SUM(ekwipunek.ilosc) FROM kreatura JOIN ekwipunek on kreatura.idKreatury = ekwipunek.idKreatury GROUP BY kreatura.nazwa;
+SELECT kreatura.nazwa, SUM(ekwipunek.ilosc) FROM kreatura JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury GROUP BY kreatura.nazwa;
 b)
 SELECT kreatura.nazwa, zasob.nazwa FROM kreatura JOIN ekwipunek ON kreatura.idKreatury = ekwipunek.idKreatury JOIN zasob 
 ON ekwipunek.idZasobu = zasob.idZasobu ORDER BY kreatura.nazwa ASC;
