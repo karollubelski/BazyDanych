@@ -4,6 +4,7 @@ CREATE TABLE zadanie (id_postaci INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nazwa 
 INSERT INTO postac (id_postaci, nazwa, rodzaj, data_ur, wiek) VALUES('0','Bjorn','wiking','1997-03-21','25');
 INSERT INTO postac (id_postaci, nazwa, rodzaj, data_ur, wiek) VALUES('2','Drozd','ptak','2021-04-11','1');
 INSERT INTO postac (id_postaci, nazwa, rodzaj, data_ur, wiek) VALUES('3','Tesciowa','kobieta','1949-07-07','73');
+UPDATE postac SET wiek=88 WHERE nazwa='tesciowa');
 
 
 --2 Tabela--
